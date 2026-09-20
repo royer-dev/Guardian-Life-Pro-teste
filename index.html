@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guardian Life PRO</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= TELA DE BLOQUEIO ================= -->
+
+<section id="lockPage" class="lock-page">
+
+    <div class="emergency-top" onclick="openArea('emergencia')">
+        <div class="emergency-title">🚨 EMERGÊNCIA</div>
+        <div>SAMU 192 • Bombeiros 193 • Polícia 190</div>
+    </div>
+
+    <div class="brand-lock">
+        <h1>🛡️ Guardian Life PRO</h1>
+        <p>Seu companheiro de saúde e segurança</p>
+    </div>
+
+    <div class="lock-card">
+
+        <h2>🔐 Digite sua senha para entrar</h2>
+
+        <input
+            id="passwordInput"
+            type="password"
+            placeholder="Sua senha"
+        >
+
+        <button class="primary-btn" onclick="login()">
+            Entrar ➡️
+        </button>
+
+        <p class="lock-help">
+            💡 Na primeira vez, a senha que você digitar
+            será criada automaticamente.
+        </p>
+
+        <p id="loginMsg"></p>
+
+    </div>
+
+    <div class="creator">
+        Criado por Matheus H. Royer
+        <span>Versão PRO ✨</span>
+    </div>
+
+</section>
+
+
+<!-- ================= APLICATIVO ================= -->
+
+<main id="app" class="hidden">
+
+    <header class="header">
+
+        <h1>🛡️ Guardian Life PRO</h1>
+
+        <button onclick="logout()" class="logout">
+            Sair
+        </button>
+
+    </header>
+
+
+    <div class="container">
+
+        <!-- ================= DASHBOARD ================= -->
+
+        <section id="dashboard">
+
+            <div class="info-grid">
+
+                <div class="info-card">
+                    <div class="emoji">📅</div>
+                    <div id="dateText" class="value">
+                        Hoje
+                    </div>
+                    <div class="sub">
+                        Data atual
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <div class="emoji">☀️</div>
+                    <div class="value">
+                        Carlos Barbosa
+                    </div>
+                    <div class="sub">
+                        Informações do aplicativo
+                    </div>
+                </div>
+
+            </div>
+
+            <h2 class="section-title">
+                📁 Funções do App
+            </h2>
+
+
+            <div class="cards">
+
+                <div class="card blue"
+                     onclick="openArea('medicamentos')">
+                    <div class="icon">💊</div>
+                    <h3>Medicamentos</h3>
+                    <span>Abrir →</span>
+                </div>
+
+                <div class="card cyan"
+                     onclick="openArea('rotina')">
+                    <div class="icon">📋</div>
+                    <h3>Rotina Diária</h3>
+                    <span>Abrir →</span>
+                </div>
+
+                <div class="card green"
+                     onclick="openArea('consultas')">
+                    <div class="icon">🏥</div>
+                    <h3>Consultas</h3>
+                    <span>Abrir →</span>
+                </div>
+
+                <div class="card purple"
+                     onclick="openArea('compras')">
+                    <div class="icon">🛒</div>
+                    <h3>Lista de Compras</h3>
+                    <span>Abrir →</span>
+                </div>
+
+                <div class="card teal"
+                     onclick="openArea('cartaoSaude')">
+                    <div class="icon">🏷️</div>
+                    <h3>Cartão de Saúde</h3>
+                    <span>Abrir →</span>
+                </div> 
+
+                <div class="card orange"
+                     onclick="openArea('perfil')">
+                    <div class="icon">👤</div>
+                    <h3>Dados Pessoais</h3>
+                    <span>Abrir →</span>
+                </div>
+
+              
+
+                <div class="card red"
+                     onclick="openArea('calculadora')">
+                    <div class="icon">🔢</div>
+                    <h3>Calculadora</h3>
+                    <span>Abrir →</span>
+                </div>
+
+                <div class="card lime"
+                     onclick="openArea('contatos')">
+                    <div class="icon">📞</div>
+                    <h3>Contatos</h3>
+                    <span>Abrir →</span>
+                </div>
+
+                <div class="card pink"
+                     onclick="openArea('saude')">
+                    <div class="icon">❤️</div>
+                    <h3>Saúde</h3>
+                    <span>Abrir →</span>
+                </div>
+
+                <div class="card brown"
+                     onclick="openArea('seguranca')">
+                    <div class="icon">🔐</div>
+                    <h3>Segurança</h3>
+                    <span>Abrir →</span>
+                </div>
+
+
+
+            </div>
+
+            <div class="emergency-main"
+                 onclick="openArea('emergencia')">
+
+                🚨 CHAMAR EMERGÊNCIA
+
+                <small>
+                    SAMU • Bombeiros • Polícia
+                </small>
+
+            </div>
+
+            
+
+
+
+            <div class="card-acessibilidade">
+                <div class="titulo-card">
+                    <span class="icone-gear">⚙️</span>
+                    <h2>Acessibilidade</h2>
+                </div>
+
+                <!-- Tamanho da letra -->
+                <div class="secao">
+                    <div class="secao-titulo">
+                        <span class="icone-abc">🔤</span>
+                        <span>Tamanho da Letra</span>
+                    </div>
+
+                    <div class="opcoes-letra">
+                        <button class="btn-letra" data-tamanho="normal">
+                            <span class="letra-a tamanho-normal-preview">A</span>
+                            <span class="label-btn">Normal</span>
+                        </button>
+
+                        <button class="btn-letra" data-tamanho="grande">
+                            <span class="letra-a tamanho-grande-preview">A</span>
+                            <span class="label-btn">Grande</span>
+                        </button>
+
+                        <button class="btn-letra ativo" data-tamanho="enorme">
+                            <span class="letra-a tamanho-enorme-preview">A</span>
+                            <span class="label-btn">Enorme</span>
+                        </button>
+                    </div>
+
+                    <div class="caixa-exemplo">
+                        <p id="texto-exemplo">Exemplo de texto com a letra selecionada. Leia com conforto! 🕶️</p>
+                    </div>
+                </div>
+
+                <hr class="divisor">
+
+                <!-- Modo claro / escuro -->
+                <div class="secao linha-toggle">
+                    <div class="info-toggle">
+                        <span class="icone-sol" id="icone-modo">☀️</span>
+                        <div>
+                            <p class="titulo-toggle" id="titulo-modo">Modo Claro</p>
+                            <p class="subtitulo-toggle" id="subtitulo-modo">Tela com fundo claro</p>
+                        </div>
+                    </div>
+
+                    <label class="switch">
+                        <input type="checkbox" id="toggle-modo">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+
+        </section>
+
+    </div>
+
+
+
+
+
+
+
+
+
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- ================= MEDICAMENTOS ================= -->
+
+    <section id="medicamentos" class="area">
+
+    <div class="med-header">
+        <div class="med-header-title">💊 <h2>Medicamentos</h2></div>
+        <div class="med-header-count" id="medCount">0 contínuo(s) · 0 temporário(s)</div>
+    </div>
+
+    <button class="med-add-btn" onclick="toggleMedForm()">
+        <span class="plus">+</span> Adicionar Medicamento
+    </button>
+
+    <div class="panel" id="medForm" style="display:none;">
+
+        <label>Medicamento</label>
+        <input id="medName" placeholder="Ex.: Losartana">
+
+        <label>Horário</label>
+        <input id="medTime" type="time">
+
+        <label>Tipo</label>
+        <select id="medTipo">
+            <option value="continuo">Contínuo</option>
+            <option value="temporario">Temporário</option>
+        </select>
+
+        <label>Observação</label>
+        <input id="medObs" placeholder="Ex.: após o almoço">
+
+        <button class="action" onclick="addMedication()">
+            + Adicionar medicamento
+        </button>
+    </div>
+
+    <div id="medList"></div>
+
+    <button class="back" onclick="backHome()">← Voltar ao Menu</button>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- ================= ROTINA ================= -->
+
+        <section id="rotina" class="area">
+
+    <div class="rot-header">
+        <div class="rot-header-title">📋 <h2>Rotina Diária</h2></div>
+        <div class="rot-header-count" id="rotCount">0 atividades</div>
+    </div>
+
+    <button class="rot-add-btn" onclick="toggleRotinaForm()">
+        <span class="plus">+</span> Nova Atividade
+    </button>
+
+    <div class="panel" id="rotinaForm" style="display:none;">
+
+        <label>Atividade</label>
+        <input id="rotName" placeholder="Ex.: caminhada">
+
+        <label>Horário (opcional)</label>
+        <input id="rotTime" type="time">
+
+        <button class="action" onclick="addRotina()">
+            + Adicionar atividade
+        </button>
+    </div>
+
+    <div id="rotinaList"></div>
+
+    <button class="back" onclick="backHome()">← Voltar ao Menu</button>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- ================= CONSULTAS ================= -->
+
+<section id="consultas" class="area">
+
+    <div class="cons-header">
+        <div class="cons-header-title">🏥 <h2>Consultas Médicas</h2></div>
+        <div class="cons-header-count" id="consCount">0 próximas · 0 passadas</div>
+    </div>
+
+    <button class="cons-add-btn" onclick="toggleConsultaForm()">
+        <span class="plus">+</span> Nova Consulta / Exame
+    </button>
+
+    <div class="panel" id="consultaForm" style="display:none;">
+
+        <label>Médico</label>
+        <input id="docName" placeholder="Nome do médico">
+
+        <label>Clínica / Hospital</label>
+        <input id="docPlace" placeholder="Local">
+
+        <label>Data</label>
+        <input id="docDate" type="date">
+
+        <label>Horário</label>
+        <input id="docTime" type="time">
+
+        <button class="action" onclick="addAppointment()">
+            + Adicionar consulta
+        </button>
+    </div>
+
+    <div id="appointmentList"></div>
+
+    <button class="back" onclick="backHome()">← Voltar ao Menu</button>
+
+</section>
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- ================= COMPRAS ================= -->
+
+<section id="compras" class="area">
+
+    <div class="shop-header">
+        <div class="shop-header-title">🛒 <h2>Lista de Compras</h2></div>
+        <div class="shop-header-count" id="shopCount">0 de 0 itens marcados</div>
+    </div>
+
+    <div class="panel shop-panel">
+        <input id="shoppingName" placeholder="Adicionar item..." onkeydown="if(event.key==='Enter') addShopping()">
+        <button class="shop-add-btn" onclick="addShopping()">+ Adicionar</button>
+    </div>
+
+    <div id="shoppingList"></div>
+
+    <button class="back" onclick="backHome()">← Voltar ao Menu</button>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- ================= CARTÃO ================= -->
+
+<section id="cartaoSaude" class="area">
+
+    <div class="cs-header">
+        <div class="cs-header-title">🏷️ <h2>Cartão de Saúde</h2></div>
+        <div class="cs-header-sub">Informações médicas importantes</div>
+    </div>
+
+    <div class="cs-card">
+        <div class="cs-card-title">🩸 Tipo Sanguíneo</div>
+        <div class="cs-blood-grid">
+            <button type="button" class="cs-blood-btn" data-tipo="A+">A+</button>
+            <button type="button" class="cs-blood-btn" data-tipo="A-">A-</button>
+            <button type="button" class="cs-blood-btn" data-tipo="B+">B+</button>
+            <button type="button" class="cs-blood-btn" data-tipo="B-">B-</button>
+            <button type="button" class="cs-blood-btn" data-tipo="AB+">AB+</button>
+            <button type="button" class="cs-blood-btn" data-tipo="AB-">AB-</button>
+            <button type="button" class="cs-blood-btn" data-tipo="O+">O+</button>
+            <button type="button" class="cs-blood-btn" data-tipo="O-">O-</button>
+        </div>
+    </div>
+
+    <div class="cs-card">
+        <div class="cs-card-title">💊 Medicamentos em Uso</div>
+        <div class="cs-card-desc">Liste os remédios, dosagem e horário de cada um</div>
+        <textarea id="csMeds" placeholder="Ex.: Losartana potássica 50mg — 1x ao dia, pela manhã"></textarea>
+    </div>
+
+    <div class="cs-card cs-border-red">
+        <div class="cs-card-title cs-red">⚠️ Alergias a Medicamentos</div>
+        <textarea id="csAlergiaMed" placeholder="Ex.: Dipirona, Penicilina"></textarea>
+    </div>
+
+    <div class="cs-card cs-border-orange">
+        <div class="cs-card-title cs-orange">🍽️ Alergias Alimentares</div>
+        <textarea id="csAlergiaAlimento" placeholder="Ex.: Amendoim, Frutos do mar"></textarea>
+    </div>
+
+    <div class="cs-card cs-border-purple">
+        <div class="cs-card-title cs-purple">🌿 Outras Alergias</div>
+        <div class="cs-card-desc">Pólen, poeira, látex, picada de inseto, etc.</div>
+        <textarea id="csAlergiaOutras" placeholder="Ex.: Pelo de gato"></textarea>
+    </div>
+
+    <div class="cs-card cs-border-teal">
+        <div class="cs-card-title">🩺 Condições de Saúde</div>
+        <div class="cs-card-desc">Doenças crônicas, histórico médico relevante</div>
+        <textarea id="csCondicoes" placeholder="Ex.: Hipertensão, Diabetes tipo 2"></textarea>
+    </div>
+
+    <div class="cs-card">
+        <div class="cs-card-title">📝 Observações Gerais</div>
+        <textarea id="csObs" placeholder="Ex.: Presença de ansiedade"></textarea>
+    </div>
+
+   <button type="button" class="cs-save-btn" onclick="saveHealthCard()">
+    💾 Salvar Cartão de Saúde
+</button>
+
+<button type="button" class="cs-share-btn" onclick="shareHealthCard()">
+    📤 Compartilhar Cartão
+    <span class="cs-share-sub">WhatsApp • E-mail • SMS • e mais</span>
+</button>
+
+<button type="button" class="cs-clear-btn" onclick="clearHealthCard()">
+    🗑️ Limpar Tudo
+</button>
+
+    <button class="back" onclick="backHome()">← Voltar ao Menu</button>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="contatos" class="area">
+
+    <div class="cont-header">
+        <div class="cont-header-title">📞 <h2>Contatos Importantes</h2></div>
+    </div>
+
+    <div class="cont-emergency-card">
+        <div class="cont-emergency-title">🚨 Números de Emergência</div>
+        <div class="cont-emergency-sub">Toque para ligar imediatamente</div>
+
+        <div class="cont-emergency-grid">
+            <button type="button" class="cont-emergency-btn" onclick="callNumber('192')">
+                <span class="cont-emergency-icon">🚑</span>
+                <strong>SAMU</strong>
+                <span class="cont-emergency-number">192</span>
+            </button>
+
+            <button type="button" class="cont-emergency-btn" onclick="callNumber('193')">
+                <span class="cont-emergency-icon">🚒</span>
+                <strong>Bombeiros</strong>
+                <span class="cont-emergency-number">193</span>
+            </button>
+
+            <button type="button" class="cont-emergency-btn" onclick="callNumber('190')">
+                <span class="cont-emergency-icon">🚓</span>
+                <strong>Polícia</strong>
+                <span class="cont-emergency-number">190</span>
+            </button>
+
+            <button type="button" class="cont-emergency-btn" onclick="callNumber('188')">
+                <span class="cont-emergency-icon">💙</span>
+                <strong>CVV</strong>
+                <span class="cont-emergency-number">188</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="cont-list-header">
+        <div class="cont-list-title">👥 Meus Contatos <span id="contTotal">(0)</span></div>
+        <button type="button" class="cont-add-btn" onclick="toggleContactForm()">
+            <span class="plus">+</span> Novo Contato
+        </button>
+    </div>
+
+    <div class="panel" id="contactForm" style="display:none;">
+        <label>Nome</label>
+        <input id="contactName" placeholder="Filho, filha, vizinho...">
+
+        <label>Telefone</label>
+        <input id="contactPhone" type="tel" placeholder="(00) 00000-0000">
+
+        <button class="action" onclick="addContact()">+ Adicionar contato</button>
+    </div>
+
+    <div id="contactList"></div>
+
+    <button class="back" onclick="backHome()">← Voltar ao Menu</button>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--dados pessoais-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="dadosPessoais" class="area">
+
+    <div class="dp-header">
+        <div class="dp-header-title">👤 <h2>Dados Pessoais</h2></div>
+        <div class="dp-header-sub">Ficha de identificação do paciente</div>
+    </div>
+
+    <div class="cs-card dp-border">
+        <div class="cs-card-title dp-orange">🪪 Identificação</div>
+
+        <label>👤 Nome Completo</label>
+        <input id="dpNome" placeholder="Nome completo">
+
+        <label>🎂 Data de Nascimento</label>
+        <input id="dpNascimento" type="date">
+
+        <label>📋 CPF</label>
+        <input id="dpCpf" placeholder="000.000.000-00" maxlength="14">
+
+        <label>🪪 RG</label>
+        <input id="dpRg" placeholder="Número do RG">
+    </div>
+
+    <div class="cs-card dp-border">
+        <div class="cs-card-title dp-orange">📞 Contatos</div>
+
+        <label>☎️ Telefone Fixo</label>
+        <input id="dpTelefoneFixo" type="tel" placeholder="(00) 0000-0000">
+
+        <label>📱 Celular</label>
+        <input id="dpCelular" type="tel" placeholder="(00) 00000-0000">
+
+        <label>✉️ E-mail</label>
+        <input id="dpEmail" type="email" placeholder="seuemail@exemplo.com">
+    </div>
+
+    <div class="cs-card dp-border">
+        <div class="cs-card-title dp-orange">🏠 Endereço</div>
+
+        <label>Rua e Número</label>
+        <input id="dpRua" placeholder="Ex: Rua das Flores, 123">
+
+        <label>Bairro</label>
+        <input id="dpBairro" placeholder="Bairro">
+
+        <label>Cidade / Estado</label>
+        <input id="dpCidade" placeholder="Ex: Carlos Barbosa - RS">
+
+        <label>CEP</label>
+        <input id="dpCep" placeholder="00000-000" maxlength="9">
+    </div>
+
+    <div class="cs-card dp-border">
+        <div class="cs-card-title dp-orange">🏥 Convênio / Plano de Saúde</div>
+
+        <label>Nome do Plano</label>
+        <input id="dpPlano" placeholder="Ex: Unimed, SUS, particular">
+
+        <label>Número da Carteirinha</label>
+        <input id="dpCarteirinha" placeholder="Número da carteirinha">
+    </div>
+
+    <div class="cs-card cs-border-red">
+        <div class="cs-card-title cs-red">🚨 Contato de Emergência</div>
+
+        <label>Nome</label>
+        <input id="dpEmergNome" placeholder="Nome do contato">
+
+        <label>Parentesco</label>
+        <input id="dpEmergParentesco" placeholder="Ex: Filho, cônjuge, vizinho">
+
+        <label>Telefone</label>
+        <input id="dpEmergTelefone" type="tel" placeholder="(00) 00000-0000">
+    </div>
+
+    <button type="button" class="dp-save-btn" onclick="savePersonal()">
+        💾 Salvar Dados Pessoais
+    </button>
+
+    <button type="button" class="dp-share-btn" onclick="sharePersonal()">
+        📤 Compartilhar Ficha
+        <span class="cs-share-sub">WhatsApp • E-mail • SMS • e mais</span>
+    </button>
+
+    <button type="button" class="dp-clear-btn" onclick="clearPersonal()">
+        🗑️ Limpar Tudo
+    </button>
+
+    <button class="back" onclick="backHome()">← Voltar ao Menu</button>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- ================= CALCULADORA ================= -->
+
+<section id="calculadora" class="area">
+
+    <div class="calc-header">
+        <div class="calc-header-icon">🔢</div>
+        <h2>Calculadora</h2>
+    </div>
+
+    <div class="calc-display-box">
+        <div id="calcDisplay">0</div>
+    </div>
+
+    <div class="calc-grid">
+        <button class="calc-btn calc-clear" onclick="calcClear()">C</button>
+        <button class="calc-btn calc-fn" onclick="calcToggleSign()">+/-</button>
+        <button class="calc-btn calc-fn" onclick="calcPercent()">%</button>
+        <button class="calc-btn calc-op" onclick="calcOperator('/')">÷</button>
+
+        <button class="calc-btn" onclick="calcDigit('7')">7</button>
+        <button class="calc-btn" onclick="calcDigit('8')">8</button>
+        <button class="calc-btn" onclick="calcDigit('9')">9</button>
+        <button class="calc-btn calc-op" onclick="calcOperator('*')">×</button>
+
+        <button class="calc-btn" onclick="calcDigit('4')">4</button>
+        <button class="calc-btn" onclick="calcDigit('5')">5</button>
+        <button class="calc-btn" onclick="calcDigit('6')">6</button>
+        <button class="calc-btn calc-op" onclick="calcOperator('-')">-</button>
+
+        <button class="calc-btn" onclick="calcDigit('1')">1</button>
+        <button class="calc-btn" onclick="calcDigit('2')">2</button>
+        <button class="calc-btn" onclick="calcDigit('3')">3</button>
+        <button class="calc-btn calc-op" onclick="calcOperator('+')">+</button>
+
+        <button class="calc-btn calc-zero" onclick="calcDigit('0')">0</button>
+        <button class="calc-btn" onclick="calcComma()">,</button>
+        <button class="calc-btn calc-eq" onclick="calcResult()">=</button>
+    </div>
+
+    <button class="calc-backspace" onclick="calcBackspace()">
+        ⌫ Apagar último dígito
+    </button>
+
+    <button class="calc-back" onclick="backHome()">
+        ← Voltar ao Menu
+    </button>
+
+</section>
+
+
+        <!-- ================= CONTATOS ================= -->
+
+        <section id="contatos" class="area">
+
+            <button class="back" onclick="backHome()">
+                ← Voltar
+            </button>
+
+            <h2>📞 Contatos</h2>
+
+            <div class="panel">
+
+                <label>Nome</label>
+
+                <input
+                    id="contactName"
+                    placeholder="Filho, filha, vizinho..."
+                >
+
+                <label>Telefone</label>
+
+                <input
+                    id="contactPhone"
+                    type="tel"
+                    placeholder="(00) 00000-0000"
+                >
+
+                <button class="action"
+                        onclick="addContact()">
+                    + Adicionar contato
+                </button>
+
+            </div>
+
+            <div id="contactList"></div>
+
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- ================= SAÚDE ================= -->
+
+<section id="saude" class="area">
+
+    <div class="sd-header">
+        <div class="sd-header-title">❤️ <h2>Minha Saúde</h2></div>
+        <div class="sd-header-sub">Registro diário de sinais vitais</div>
+    </div>
+
+    <div class="sd-date-bar">
+        <span class="sd-date-icon">📅</span>
+        <input type="date" id="sdDate" onchange="loadSaudeDia()">
+        <button type="button" class="sd-today-btn" onclick="irParaHoje()">Hoje</button>
+    </div>
+
+    <div class="cs-card">
+        <div class="cs-card-title sd-pink">📊 Dados Vitais</div>
+
+        <label>⚖️ Peso (kg)</label>
+        <input type="number" step="0.1" id="sdPeso" placeholder="Ex: 72,5">
+
+        <label>🩺 Pressão Arterial</label>
+        <div class="sd-pressao-row">
+            <div>
+                <small>Sistólica (máx)</small>
+                <input type="number" id="sdSistolica" placeholder="Ex: 120">
+            </div>
+            <span class="sd-barra">/</span>
+            <div>
+                <small>Diastólica (mín)</small>
+                <input type="number" id="sdDiastolica" placeholder="Ex: 80">
+            </div>
+            <span class="sd-unidade">mmHg</span>
+        </div>
+
+        <label>💗 Frequência Cardíaca (bpm)</label>
+        <input type="number" id="sdFrequencia" placeholder="Ex: 72">
+
+        <label>🩸 Glicemia (mg/dL)</label>
+        <input type="number" id="sdGlicemia" placeholder="Ex: 95">
+
+        <button type="button" class="sd-save-btn" onclick="saveSaudeDia()">
+            💾 Salvar Registro do Dia
+        </button>
+    </div>
+
+    <div class="cs-card">
+        <div class="cs-card-title sd-pink">📖 Histórico (últimos 14 dias)</div>
+        <div id="sdHistorico"></div>
+    </div>
+
+    <button type="button" class="sd-share-btn" onclick="shareSaudeReport()">
+        📤 Compartilhar Relatório
+        <span class="cs-share-sub">Últimos 14 dias por WhatsApp</span>
+    </button>
+
+    <button class="back" onclick="backHome()">← Voltar ao Menu</button>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- ================= SEGURANÇA ================= -->
+
+        <section id="seguranca" class="area">
+
+            <button class="back" onclick="backHome()">
+                ← Voltar
+            </button>
+
+            <h2>🔐 Segurança</h2>
+
+            <div class="panel">
+
+                <h3>🛡️ Segurança digital</h3>
+
+                <ul>
+                    <li>Não compartilhe suas senhas.</li>
+                    <li>Não clique em links suspeitos.</li>
+                    <li>Não informe códigos recebidos por SMS.</li>
+                    <li>Desconfie de pedidos de dinheiro.</li>
+                    <li>Peça ajuda quando estiver em dúvida.</li>
+                </ul>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= EMERGÊNCIA ================= -->
+
+        <section id="emergencia" class="area">
+
+            <button class="back" onclick="backHome()">
+                ← Voltar
+            </button>
+
+            <h2>🚨 Emergência</h2>
+
+            <div class="panel">
+
+                <p>
+                    Escolha o serviço que deseja chamar:
+                </p>
+
+                <button
+                    class="emergency-button samu"
+                    onclick="callNumber('192')">
+                    🚑 SAMU — 192
+                </button>
+
+                <button
+                    class="emergency-button bombeiros"
+                    onclick="callNumber('193')">
+                    🚒 Bombeiros — 193
+                </button>
+
+                <button
+                    class="emergency-button policia"
+                    onclick="callNumber('190')">
+                    👮 Polícia — 190
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= ACESSIBILIDADE ================= -->
+
+        
+
+</main>
+
+<script src="script.js"></script>
+
+</body>
+</html>
